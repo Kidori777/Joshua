@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>여호수아기 — 강해져라, 담대하라</title>
+<meta name="description" content="모세의 죽음에서 여호와의 군대 대장을 만나기까지, 여호수아기 1~5장에 담긴 하나님의 경륜을 따라가는 성경 시리즈.">
+<meta property="og:title" content="여호수아기 — 강해져라, 담대하라">
+<meta property="og:description" content="모세의 죽음에서 여호와의 군대 대장을 만나기까지, 여호수아기 1~5장에 담긴 하나님의 경륜을 따라가는 성경 시리즈.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#241C14;
+    --bg-mid:#332A1D;
+    --bg-panel:#2C2318;
+    --gold:#C9974A;
+    --gold-soft:#DDBB84;
+    --river:#4C7683;
+    --river-soft:#7FA6AF;
+    --stone:#A69271;
+    --scarlet:#8E4436;
+    --text-light:#EFE6D4;
+    --text-dim:#B9A98B;
+    --text-faint:#8A7C63;
+    --line:rgba(201,151,74,0.28);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg-deep);
+    color:var(--text-light);
+    font-family:'Noto Serif KR', serif;
+    font-weight:300;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  ::selection{background:var(--gold); color:var(--bg-deep);}
+
+  a{color:var(--gold-soft);}
+
+  h1,h2,h3{
+    font-family:'Noto Serif KR', serif;
+    font-weight:600;
+    color:var(--text-light);
+    margin:0;
+  }
+
+  p{margin:0 0 1.3em 0;}
+  p:last-child{margin-bottom:0;}
+
+  .label{
+    font-family:'Noto Sans KR', sans-serif;
+    font-weight:500;
+    font-size:0.82rem;
+    letter-spacing:0.12em;
+    color:var(--gold-soft);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    padding:2rem;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% 0%, rgba(76,118,131,0.16), transparent 60%),
+      linear-gradient(180deg, #201810 0%, #241C14 55%, #2C2318 100%);
+  }
+  #heroCanvas{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    opacity:0.55;
+  }
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    max-width:640px;
+  }
+  .hero-kicker{
+    font-family:'Noto Sans KR', sans-serif;
+    font-weight:500;
+    font-size:0.82rem;
+    letter-spacing:0.22em;
+    color:var(--text-dim);
+    margin-bottom:1.6rem;
+    opacity:0;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 7vw, 4.6rem);
+    font-weight:700;
+    color:var(--text-light);
+    letter-spacing:0.02em;
+    opacity:0;
+  }
+  .hero-sub{
+    margin-top:1.6rem;
+    font-size:clamp(1.15rem, 2.6vw, 1.5rem);
+    color:var(--gold-soft);
+    font-weight:500;
+    letter-spacing:0.03em;
+    opacity:0;
+  }
+  .hero-verse{
+    margin-top:2.4rem;
+    font-size:0.95rem;
+    color:var(--text-faint);
+    font-family:'Noto Sans KR', sans-serif;
+    font-weight:300;
+    opacity:0;
+  }
+  .hero-scroll{
+    position:absolute;
+    bottom:2.6rem;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0.6rem;
+    z-index:2;
+    opacity:0;
+  }
+  .hero-scroll span{
+    font-family:'Noto Sans KR', sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    color:var(--text-faint);
+  }
+  .scroll-line{
+    width:1px;
+    height:38px;
+    background:linear-gradient(180deg, var(--gold), transparent);
+    animation:scrollpulse 2.2s ease-in-out infinite;
+  }
+  @keyframes scrollpulse{
+    0%,100%{opacity:0.25; transform:scaleY(0.7); transform-origin:top;}
+    50%{opacity:1; transform:scaleY(1); transform-origin:top;}
+  }
+
+  @keyframes heroIn{
+    from{opacity:0; transform:translateY(16px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  .hero-kicker{animation:heroIn 1s ease forwards 0.2s;}
+  .hero h1{animation:heroIn 1.1s ease forwards 0.5s;}
+  .hero-sub{animation:heroIn 1.1s ease forwards 0.9s;}
+  .hero-verse{animation:heroIn 1.1s ease forwards 1.3s;}
+  .hero-scroll{animation:heroIn 1.1s ease forwards 1.8s;}
+
+  /* ---------- INTRO STRIP ---------- */
+  .intro{
+    max-width:620px;
+    margin:0 auto;
+    padding:6rem 1.6rem 4rem;
+    text-align:center;
+  }
+  .intro p{
+    color:var(--text-dim);
+    font-size:1.05rem;
+  }
+
+  /* ---------- JOURNEY / PATH ---------- */
+  .journey{
+    position:relative;
+    max-width:1040px;
+    margin:0 auto;
+    padding:2rem 1.4rem 8rem;
+  }
+  .path-line{
+    position:absolute;
+    left:32px;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:linear-gradient(180deg, transparent, var(--line) 4%, var(--line) 96%, transparent);
+  }
+
+  .stage{
+    position:relative;
+    padding:3.6rem 0 3.6rem 84px;
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity 0.9s ease, transform 0.9s ease;
+  }
+  .stage.is-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  .stage-marker{
+    position:absolute;
+    left:0;
+    top:3.9rem;
+    display:flex;
+    align-items:center;
+    gap:0.9rem;
+  }
+  .marker-dot{
+    width:13px;
+    height:13px;
+    border-radius:50%;
+    background:var(--bg-deep);
+    border:2px solid var(--gold);
+    flex-shrink:0;
+    position:relative;
+    z-index:2;
+    transition:box-shadow 0.6s ease, background 0.6s ease;
+  }
+  .stage.is-visible .marker-dot{
+    background:var(--gold);
+    box-shadow:0 0 0 5px rgba(201,151,74,0.14);
+  }
+  .marker-label{
+    font-family:'Noto Sans KR', sans-serif;
+    font-weight:500;
+    font-size:0.78rem;
+    letter-spacing:0.14em;
+    color:var(--text-faint);
+    white-space:nowrap;
+  }
+
+  .stage-ref{
+    font-family:'Noto Sans KR', sans-serif;
+    font-size:0.8rem;
+    letter-spacing:0.08em;
+    color:var(--text-faint);
+    margin-bottom:0.7rem;
+    display:block;
+  }
+
+  .stage h2{
+    font-size:clamp(1.5rem, 3.2vw, 2rem);
+    margin-bottom:1.4rem;
+    max-width:20ch;
+  }
+
+  .stage-body{
+    max-width:640px;
+    color:var(--text-dim);
+    font-size:1.03rem;
+  }
+  .stage-body p{color:var(--text-dim);}
+
+  blockquote{
+    margin:1.8rem 0;
+    padding:1.3rem 1.6rem 1.3rem 1.5rem;
+    border-left:2px solid var(--gold);
+    background:rgba(201,151,74,0.05);
+    color:var(--text-light);
+    font-size:1.08rem;
+    font-weight:400;
+    line-height:1.85;
+    max-width:600px;
+  }
+  blockquote .cite{
+    color:var(--text-faint);
+    font-family:'Noto Sans KR', sans-serif;
+    font-size:0.82rem;
+    letter-spacing:0.03em;
+  }
+
+  /* stage accent variants */
+  .stage[data-accent="river"] blockquote{border-left-color:var(--river-soft); background:rgba(76,118,131,0.08);}
+  .stage[data-accent="river"] .stage-ref{color:var(--river-soft);}
+  .stage[data-accent="scarlet"] blockquote{border-left-color:var(--scarlet); background:rgba(142,68,54,0.07);}
+  .stage[data-accent="stone"] blockquote{border-left-color:var(--stone); background:rgba(166,146,113,0.07);}
+
+  /* ---------- MEMORIAL STONES DECORATION ---------- */
+  .stones-row{
+    display:flex;
+    gap:0.6rem;
+    margin:1.8rem 0 0.4rem;
+  }
+  .stones-row span{
+    width:22px;
+    height:16px;
+    border-radius:3px;
+    background:linear-gradient(160deg, var(--stone), #7A6A4F);
+    opacity:0.8;
+  }
+  .stones-row span:nth-child(3n){transform:translateY(3px);}
+  .stones-row span:nth-child(4n){transform:translateY(-2px);}
+
+  /* ---------- CONCLUSION ---------- */
+  .conclusion{
+    position:relative;
+    max-width:720px;
+    margin:0 auto;
+    padding:5rem 1.6rem 8rem;
+    text-align:center;
+  }
+  .conclusion .label{display:block; margin-bottom:1.4rem;}
+  .conclusion p{
+    color:var(--text-dim);
+    font-size:1.08rem;
+    text-align:left;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .conclusion-final{
+    margin-top:2.6rem;
+    padding-top:2.4rem;
+    border-top:1px solid var(--line);
+    color:var(--gold-soft) !important;
+    font-weight:500;
+    font-size:1.14rem !important;
+  }
+
+  footer{
+    text-align:center;
+    padding:2.4rem 1.6rem 3rem;
+    font-family:'Noto Sans KR', sans-serif;
+    font-size:0.78rem;
+    color:var(--text-faint);
+    letter-spacing:0.04em;
+  }
+
+  @media (max-width:640px){
+    .path-line{left:20px;}
+    .stage{padding-left:56px;}
+    .stage-marker{gap:0.6rem;}
+    .marker-label{font-size:0.7rem;}
+    .marker-dot{width:11px; height:11px;}
+    .stage h2{max-width:100%;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+    .stage{opacity:1; transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-inner">
+    <div class="hero-kicker">여호수아기 1장 — 5장</div>
+    <h1>여호수아기</h1>
+    <div class="hero-sub">강해져라, 그리고 용기를 내라</div>
+    <div class="hero-verse">“내가 네게 명령한 것이 아니냐. 강해져라. 그리고 용기를 내라…”(수 1:9)</div>
+  </div>
+  <div class="hero-scroll">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<div class="intro">
+  <p>모세의 죽음으로 한 시대가 끝이 났습니다. 그러나 하나님께서 이루시고자 하시는 일은 결코 멈추지 않습니다. 사람은 바뀌지만, 하나님의 경륜은 이어집니다. 여호수아가 요단강 앞에 서기까지, 부르심에서 대면에 이르는 여정을 따라갑니다.</p>
+</div>
+
+<div class="journey">
+  <div class="path-line"></div>
+
+  <section class="stage" data-accent="gold">
+    <div class="stage-marker"><span class="marker-dot"></span><span class="marker-label">부르심</span></div>
+    <span class="stage-ref">수 1:1–10</span>
+    <h2>모세가 죽은 후, 하나님은 멈추지 않으신다</h2>
+    <div class="stage-body">
+      <blockquote>“여호와의 종 모세가 죽은 후에 여호와께서 모세를 시중들던, 눈의 아들 여호수아에게 말씀하셨다.”<span class="cite">(수 1:1)</span></blockquote>
+      <p>모세의 죽음으로 한 시대가 끝이 났습니다. 그러나 하나님께서 이루시고자 하시는 일은 결코 멈추지 않습니다. 사람은 바뀌지만, 하나님의 경륜은 이어집니다. 하나님께서는 모세를 대신하여 여호수아를 부르시며 이렇게 말씀하십니다.</p>
+      <blockquote>“나의 종 모세가 죽었다. 이제 너와 이 모든 백성은 일어나 이 요단강을 건너… 내가… 줄 땅으로 들어가거라.”<span class="cite">(수 1:2)</span></blockquote>
+      <p>이 말씀은 단순한 지리적 이동의 명령이 아닙니다. 하나님께서 오래전 아브라함에게 약속하셨던 땅, 곧 “내가 모세에게 약속한 대로… 너희가 발바닥으로 밟는 곳은 다 내가 너희에게 주었다.”(수 1:3)는 그 약속의 성취가 이제 현실로 나타나는 순간입니다. 하나님은 약속하신 것을 반드시 이루시는 분이십니다. 그러나 그 성취는 언제나 사람의 순종과 믿음을 통하여 이루어집니다.</p>
+      <p>그래서 하나님께서는 여호수아에게 세 번이나 반복하여 말씀하십니다.</p>
+      <blockquote>“강해져라. 그리고 용기를 내라.”<span class="cite">(수 1:6, 7, 9)</span></blockquote>
+      <p>이 강함과 용기는 인간적인 담대함이 아니라, 하나님의 말씀에 대한 절대적인 신뢰에서 나오는 것입니다. 하나님은 그 비결을 분명히 밝히십니다.</p>
+      <blockquote>“이 율법책이 너의 입에서 떠나지 않도록 하고… 그러면 네 길이 순탄할 것이고 네가 성공할 것이다.”<span class="cite">(수 1:8)</span></blockquote>
+      <p>여기서 드러나는 하나님의 의도는 분명합니다. 이스라엘이 땅을 차지하는 목적은 단순한 정복이 아니라, 하나님의 말씀 안에 거하는 백성으로 세워지는 데 있습니다. 땅은 결과일 뿐이며, 말씀에 순종하는 삶이 본질입니다.</p>
+    </div>
+  </section>
+
+  <section class="stage" data-accent="gold">
+    <div class="stage-marker"><span class="marker-dot"></span><span class="marker-label">순종</span></div>
+    <span class="stage-ref">수 1:11–16</span>
+    <h2>한 공동체가 다시 정렬되다</h2>
+    <div class="stage-body">
+      <p>여호수아는 이 말씀을 듣고 즉시 움직입니다.</p>
+      <blockquote>“삼 일 후에 여러분은 이 요단강을 건너…”<span class="cite">(수 1:11)</span></blockquote>
+      <p>백성 역시 응답합니다.</p>
+      <blockquote>“어르신께서 명령하신 모든 것을 우리가 준행하겠습니다.”<span class="cite">(수 1:16)</span></blockquote>
+      <p>이 장면은 단순한 지도자 교체가 아니라, 한 공동체가 하나님의 말씀 아래 다시 정렬되는 순간입니다. 하나님은 한 사람만이 아니라, 온 백성이 함께 그분의 경륜에 참여하기를 원하십니다.</p>
+    </div>
+  </section>
+
+  <section class="stage" data-accent="scarlet">
+    <div class="stage-marker"><span class="marker-dot"></span><span class="marker-label">정탐</span></div>
+    <span class="stage-ref">수 2:1–11</span>
+    <h2>붉은 줄에 예비된 구원</h2>
+    <div class="stage-body">
+      <p>그리고 그 길의 첫 단계는 ‘보이지 않는 것’을 보는 믿음에서 시작됩니다. 여호수아는 정탐꾼을 보내어 여리고를 살피게 합니다(수 2:1). 그러나 놀랍게도 하나님은 이 과정 속에 한 여인을 준비해 두셨습니다. 세상적으로 보면 연약하고 소외된 존재인 라합입니다.</p>
+      <p>라합은 고백합니다.</p>
+      <blockquote>“여호와 여러분의 하나님 그분이야말로 위로는 하늘에 계시며 아래로는 땅에 계시는 하나님이십니다.”<span class="cite">(수 2:11)</span></blockquote>
+      <p>이 고백은 이스라엘 밖에서 울려 퍼진 믿음의 선언입니다. 하나님께서는 단지 한 민족의 하나님이 아니라, 온 땅의 주님이심을 드러내고 계십니다. 라합의 붉은 줄은 심판 가운데서도 구원을 예비하시는 하나님의 방식을 보여 줍니다. 하나님은 언제나 믿음으로 반응하는 자를 구원의 이야기 안으로 끌어들이십니다.</p>
+    </div>
+  </section>
+
+  <section class="stage" data-accent="river">
+    <div class="stage-marker"><span class="marker-dot"></span><span class="marker-label">도하</span></div>
+    <span class="stage-ref">수 3:13–16</span>
+    <h2>발을 먼저, 그 다음에 물이 갈라진다</h2>
+    <div class="stage-body">
+      <p>이제 이스라엘은 요단강 앞에 섭니다. 눈앞에는 넘쳐 흐르는 강이 있습니다. 그러나 하나님께서는 말씀하십니다.</p>
+      <blockquote>“제사장들의 발바닥이 요단강의 물을 밟으면… 물이 끊어지고… 언덕처럼 설 것이다.”<span class="cite">(수 3:13)</span></blockquote>
+      <p>여기서 하나님의 방식이 드러납니다. 물이 먼저 갈라진 것이 아니라, 발을 먼저 내딛게 하십니다. 믿음은 눈으로 확인한 후 움직이는 것이 아니라, 말씀을 따라 먼저 발을 내딛는 것입니다.</p>
+      <p>그리고 그 순간,</p>
+      <blockquote>“상류에서부터 흘러온 물은… 멈추어 언덕처럼 솟았고…”<span class="cite">(수 3:16)</span></blockquote>
+      <p>이스라엘은 마른 땅을 밟고 요단을 건넙니다. 이것은 단순한 기적이 아니라, 출애굽 때 홍해를 건넌 사건의 반복이자 완성입니다. 하나님은 과거에 하신 일을 현재에 다시 나타내심으로, 그분이 변하지 않으심을 증거하십니다.</p>
+    </div>
+  </section>
+
+  <section class="stage" data-accent="stone">
+    <div class="stage-marker"><span class="marker-dot"></span><span class="marker-label">기념</span></div>
+    <span class="stage-ref">수 4:6–7</span>
+    <h2>다음 세대를 향한 증언</h2>
+    <div class="stage-body">
+      <p>하나님은 이 사건을 잊지 않게 하십니다.</p>
+      <blockquote>“이 돌들은… 영원토록 기념이 될 것입니다.”<span class="cite">(수 4:7)</span></blockquote>
+      <div class="stones-row" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p>열두 돌은 단순한 기념물이 아니라, 다음 세대를 향한 증언입니다.</p>
+      <blockquote>“훗날… ‘이 돌들의 의미는 무엇입니까?’라고 물으면…”<span class="cite">(수 4:6)</span></blockquote>
+      <p>하나님의 경륜은 한 세대에서 끝나지 않습니다. 기억되고, 전해지고, 이어져야 합니다. 하나님은 역사 속에서 자신을 계시하시고, 그 계시를 다음 세대에게 전달하게 하십니다.</p>
+    </div>
+  </section>
+
+  <section class="stage" data-accent="gold">
+    <div class="stage-marker"><span class="marker-dot"></span><span class="marker-label">성별</span></div>
+    <span class="stage-ref">수 5:2–12</span>
+    <h2>전쟁 전에, 먼저 다시 세워지다</h2>
+    <div class="stage-body">
+      <p>요단을 건넌 후, 하나님은 곧바로 전쟁을 시작하게 하지 않으십니다. 오히려 멈추게 하십니다.</p>
+      <blockquote>“다시… 할례를 행하여라.”<span class="cite">(수 5:2)</span></blockquote>
+      <p>할례는 언약의 표입니다. 하나님은 먼저 그들의 정체성을 회복시키십니다. 광야에서 태어난 세대는 아직 언약의 표를 갖지 못했습니다. 하나님께서는 그들을 ‘자신의 백성’으로 다시 구별하십니다.</p>
+      <p>그리고 이어서 유월절을 지키게 하십니다(수 5:10). 출애굽의 구원을 기억하게 하십니다. 그날 이후로 만나가 그칩니다.</p>
+      <blockquote>“그들이 그 땅의 소산을 먹은 그날 만나가 그쳤다.”<span class="cite">(수 5:12)</span></blockquote>
+      <p>이것은 놀라운 전환입니다. 광야에서는 하늘의 만나로 살았지만, 이제는 약속의 땅의 소산으로 살아갑니다. 하나님은 상황에 따라 다른 방식으로 공급하시지만, 그 근원은 언제나 하나님 자신이십니다.</p>
+    </div>
+  </section>
+
+  <section class="stage" data-accent="gold">
+    <div class="stage-marker"><span class="marker-dot"></span><span class="marker-label">대면</span></div>
+    <span class="stage-ref">수 5:13–15</span>
+    <h2>네가 서 있는 곳은 거룩한 곳이다</h2>
+    <div class="stage-body">
+      <p>마침내 여호수아는 한 사람을 만납니다.</p>
+      <blockquote>“나는 지금 여호와의 군대 대장으로 와 있다.”<span class="cite">(수 5:14)</span></blockquote>
+      <p>여호수아가 “우리 편입니까, 적의 편입니까?”라고 묻자, 그분은 “어느 편도 아니다”라고 답하십니다. 이것은 중요한 전환입니다. 하나님은 우리의 편이 되시는 분이 아니라, 우리가 하나님 편에 서야 하는 분이십니다.</p>
+      <p>그리고 그분은 말씀하십니다.</p>
+      <blockquote>“네 발의 신을 벗어라. 네가 서 있는 곳은 거룩한 곳이다.”<span class="cite">(수 5:15)</span></blockquote>
+      <p>전쟁을 앞둔 순간, 하나님은 먼저 ‘거룩’을 요구하십니다. 승리는 전략에서 나오지 않고, 하나님 앞에 서는 태도에서 시작됩니다.</p>
+    </div>
+  </section>
+</div>
+
+<div class="conclusion">
+  <span class="label">하나님의 경륜</span>
+  <p>이렇게 여호수아서의 시작은 단순한 정복 이야기로 보이지만, 그 깊은 흐름 속에는 하나님의 분명한 의도가 흐르고 있습니다. 하나님은 백성을 약속의 땅으로 인도하시지만, 그 목적은 땅 자체가 아닙니다. 말씀에 순종하는 백성, 언약 안에 사는 백성, 하나님과 동행하는 백성을 얻으시는 데 있습니다.</p>
+  <p>요단을 건너는 것은 끝이 아니라 시작이며, 할례와 유월절은 그들이 누구인지를 다시 정의합니다. 그리고 여호와의 군대 대장을 만나는 장면은 모든 전쟁과 삶의 중심이 하나님 자신이어야 함을 드러냅니다.</p>
+  <p class="conclusion-final">결국 이 모든 여정은 하나로 수렴됩니다. 하나님께서 한 백성을 얻으시고, 그 백성을 통해 자신의 통치를 이 땅 가운데 나타내시는 것, 곧 하나님의 경륜입니다.</p>
+  <p class="conclusion-final">이스라엘이 땅을 차지하는 이야기는, 하나님께서 사람 안에 거하시고 그들을 통해 자신의 뜻을 이루어 가시는 더 큰 이야기의 시작일 뿐입니다.</p>
+</div>
+
+<footer>여호수아기 1장 — 5장 · 강해져라, 담대하라</footer>
+
+<script>
+(function(){
+  var canvas = document.getElementById('heroCanvas');
+  var ctx = canvas.getContext('2d');
+  var w, h, dpr;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = canvas.clientWidth;
+    h = canvas.clientHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  var lines = [];
+  var lineCount = 7;
+  for (var i = 0; i < lineCount; i++){
+    lines.push({
+      baseY: (i + 1) / (lineCount + 1),
+      amp: 14 + Math.random() * 22,
+      speed: 0.25 + Math.random() * 0.35,
+      phase: Math.random() * Math.PI * 2,
+      freq: 0.6 + Math.random() * 0.5,
+      hue: i % 2 === 0 ? 'rgba(201,151,74,' : 'rgba(76,118,131,'
+    });
+  }
+
+  var t = 0;
+  function draw(){
+    ctx.clearRect(0, 0, w, h);
+    for (var i = 0; i < lines.length; i++){
+      var ln = lines[i];
+      var y = h * ln.baseY;
+      ctx.beginPath();
+      for (var x = 0; x <= w; x += 6){
+        var yy = y + Math.sin((x / w) * Math.PI * 2 * ln.freq + t * ln.speed + ln.phase) * ln.amp;
+        if (x === 0) ctx.moveTo(x, yy); else ctx.lineTo(x, yy);
+      }
+      var opacity = 0.05 + (i % 3) * 0.02;
+      ctx.strokeStyle = ln.hue + opacity + ')';
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+    }
+    t += 0.012;
+    if (!reduceMotion){
+      requestAnimationFrame(draw);
+    }
+  }
+  draw();
+})();
+
+(function(){
+  var stages = document.querySelectorAll('.stage');
+  if (!('IntersectionObserver' in window)){
+    stages.forEach(function(s){ s.classList.add('is-visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -60px 0px' });
+  stages.forEach(function(s){ io.observe(s); });
+})();
+</script>
+
+</body>
+</html>

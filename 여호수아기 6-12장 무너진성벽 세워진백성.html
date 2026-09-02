@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>여호수아기 성경 시리즈 | 무너진 성벽, 세워진 백성</title>
+<meta property="og:title" content="여호수아기 성경 시리즈 | 무너진 성벽, 세워진 백성">
+<meta property="og:description" content="여리고의 붕괴부터 아이 성 정복까지, 하나님의 경륜을 따라가는 여호수아 6-11장 묵상">
+<meta name="description" content="여리고의 붕괴부터 아이 성 정복까지, 하나님의 경륜을 따라가는 여호수아 6-11장 묵상">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#1c140f;
+    --bg-panel:#241a13;
+    --bg-panel-2:#2c2018;
+    --gold:#c8a24a;
+    --gold-bright:#e3c273;
+    --ember:#9c4a26;
+    --ember-bright:#c9612f;
+    --ash:#7d7264;
+    --stone:#4a4038;
+    --dusk-blue:#2c3a4a;
+    --text-main:#f3ead9;
+    --text-dim:#c9bda8;
+    --line:rgba(200,162,74,0.22);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg-deep);
+    color:var(--text-main);
+    font-family:'Noto Sans KR', sans-serif;
+    font-weight:300;
+    line-height:1.9;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{font-family:'Noto Serif KR', serif;}
+  em, i, .italic{font-style:normal !important;}
+
+  #bgCanvas{
+    position:fixed; top:0; left:0; width:100%; height:100%;
+    z-index:0; opacity:0.35; pointer-events:none;
+  }
+
+  .wrap{position:relative; z-index:1;}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    padding:40px 24px;
+    position:relative;
+    background:
+      radial-gradient(ellipse at 50% 20%, rgba(201,97,47,0.16), transparent 60%),
+      linear-gradient(180deg, #17110c 0%, var(--bg-deep) 70%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero .kicker{
+    letter-spacing:0.35em;
+    font-size:12px;
+    color:var(--gold);
+    text-transform:uppercase;
+    margin-bottom:28px;
+    opacity:0;
+    animation:fadeUp 1.2s ease forwards 0.2s;
+  }
+  .hero h1{
+    font-size:clamp(34px, 6vw, 62px);
+    font-weight:700;
+    color:var(--text-main);
+    line-height:1.35;
+    margin-bottom:22px;
+    opacity:0;
+    animation:fadeUp 1.2s ease forwards 0.5s;
+  }
+  .hero h1 span{
+    display:block;
+    color:var(--gold-bright);
+    font-size:0.5em;
+    font-weight:500;
+    letter-spacing:0.08em;
+    margin-top:14px;
+  }
+  .hero p.lead{
+    max-width:620px;
+    color:var(--text-dim);
+    font-size:16px;
+    opacity:0;
+    animation:fadeUp 1.2s ease forwards 0.8s;
+  }
+  .hero .verse-tag{
+    margin-top:44px;
+    padding:14px 28px;
+    border:1px solid var(--line);
+    border-radius:2px;
+    font-family:'Noto Serif KR', serif;
+    font-size:14px;
+    color:var(--gold);
+    letter-spacing:0.04em;
+    opacity:0;
+    animation:fadeUp 1.2s ease forwards 1.1s;
+  }
+  @keyframes fadeUp{
+    from{opacity:0; transform:translateY(18px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  .scroll-cue{
+    position:absolute; bottom:36px; left:50%; transform:translateX(-50%);
+    width:1px; height:50px; background:linear-gradient(180deg, var(--gold), transparent);
+    opacity:0.5;
+    animation:pulseLine 2.4s ease-in-out infinite;
+  }
+  @keyframes pulseLine{
+    0%,100%{opacity:0.15;} 50%{opacity:0.6;}
+  }
+
+  /* SECTION SCAFFOLD */
+  section.chapter{
+    padding:120px 24px;
+    position:relative;
+    border-bottom:1px solid var(--line);
+  }
+  .chapter-inner{
+    max-width:760px;
+    margin:0 auto;
+  }
+  .chapter-num{
+    font-family:'Noto Serif KR', serif;
+    font-size:13px;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:18px;
+    opacity:0.85;
+  }
+  .chapter-title{
+    font-size:clamp(26px, 4vw, 38px);
+    font-weight:700;
+    margin-bottom:36px;
+    color:var(--text-main);
+  }
+  .verse-block{
+    border-left:2px solid var(--gold);
+    padding:6px 0 6px 24px;
+    margin:32px 0;
+    font-family:'Noto Serif KR', serif;
+    font-size:18px;
+    color:var(--gold-bright);
+    line-height:1.85;
+  }
+  .verse-block cite{
+    display:block;
+    font-style:normal;
+    font-family:'Noto Sans KR', sans-serif;
+    font-size:13px;
+    color:var(--ash);
+    margin-top:10px;
+    letter-spacing:0.03em;
+  }
+  .body-text p{
+    color:var(--text-dim);
+    font-size:16.5px;
+    margin-bottom:22px;
+  }
+  .body-text p:last-child{margin-bottom:0;}
+  .highlight-line{
+    font-family:'Noto Serif KR', serif;
+    color:var(--text-main);
+    font-size:19px;
+    font-weight:500;
+    margin:34px 0;
+    line-height:1.7;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(34px);
+    transition:opacity 1s ease, transform 1s ease;
+  }
+  .reveal.in{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* SECTION-SPECIFIC TINTS */
+  .sec-jericho{ background:linear-gradient(180deg, var(--bg-deep) 0%, #201812 100%); }
+  .sec-achan{
+    background:linear-gradient(180deg, #201812 0%, #241610 100%);
+  }
+  .sec-achan .verse-block{ border-left-color:var(--ember-bright); color:#e08a5c; }
+  .sec-achan .chapter-num{ color:var(--ember-bright); }
+
+  .sec-ai{ background:linear-gradient(180deg, #241610 0%, #221a10 100%); }
+  .sec-ai .verse-block{ border-left-color:var(--gold-bright); }
+
+  .sec-gibeon{ background:linear-gradient(180deg, #221a10 0%, #1e1c1a 100%); }
+  .sec-gibeon .verse-block{ border-left-color:var(--ash); color:#c9bfae; }
+  .sec-gibeon .chapter-num{ color:var(--ash); }
+
+  .sec-kings{
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(44,58,74,0.4), transparent 65%),
+      linear-gradient(180deg, #1e1c1a 0%, #171a20 100%);
+  }
+  .sec-kings .verse-block{ border-left-color:#8fa8c2; color:#a9c1da; }
+  .sec-kings .chapter-num{ color:#8fa8c2; }
+
+  .sec-rest{
+    background:linear-gradient(180deg, #171a20 0%, #191510 100%);
+  }
+
+  /* CLOSING */
+  .closing{
+    padding:140px 24px 160px;
+    text-align:center;
+    background:radial-gradient(ellipse at 50% 30%, rgba(200,162,74,0.1), transparent 60%), var(--bg-deep);
+  }
+  .closing-inner{max-width:640px; margin:0 auto;}
+  .closing .tag{
+    letter-spacing:0.3em; font-size:12px; color:var(--gold); text-transform:uppercase; margin-bottom:30px;
+  }
+  .closing p{
+    color:var(--text-dim); font-size:16.5px; margin-bottom:26px;
+  }
+  .closing .final{
+    font-family:'Noto Serif KR', serif;
+    font-size:clamp(22px,3.4vw,30px);
+    color:var(--text-main);
+    font-weight:600;
+    line-height:1.8;
+    margin-top:48px;
+  }
+  .closing .final .g{ color:var(--gold-bright); }
+  .divider{
+    width:60px; height:1px; background:var(--gold); margin:40px auto; opacity:0.5;
+  }
+
+  footer{
+    text-align:center;
+    padding:40px 24px 60px;
+    color:var(--ash);
+    font-size:12px;
+    letter-spacing:0.06em;
+  }
+
+  @media (max-width:640px){
+    section.chapter{padding:88px 20px;}
+    .verse-block{padding-left:18px; font-size:16.5px;}
+  }
+</style>
+</head>
+<body>
+
+<canvas id="bgCanvas"></canvas>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="kicker">JOSHUA · 여호수아 6장 – 11장</div>
+    <h1>무너진 성벽<br>세워진 백성
+      <span>닫힌 여리고에서 평온한 땅까지</span>
+    </h1>
+    <p class="lead">닫혀 있던 성문 앞에서 시작된 이야기는, 사람의 힘이 아니라 하나님의 말씀으로 완성되어 갑니다.</p>
+    <div class="verse-tag">"보아라, 내가 여리고와 그 왕과 그 힘센 용사들을 네 손에 넘겨주었다." — 여호수아 6:2</div>
+    <div class="scroll-cue"></div>
+  </section>
+
+  <!-- 여리고 -->
+  <section class="chapter sec-jericho">
+    <div class="chapter-inner">
+      <div class="chapter-num reveal">CHAPTER ONE · 여리고</div>
+      <h2 class="chapter-title reveal">닫힌 성문, 열린 경륜</h2>
+
+      <div class="verse-block reveal">
+        “그때 여리고는 이스라엘 자손 때문에 매우 굳게 닫혀 있어 드나드는 사람이 아무도 없었다.”
+        <cite>여호수아 6:1</cite>
+      </div>
+
+      <div class="body-text reveal">
+        <p>닫혀 있습니다. 길이 막혀 있습니다. 사람의 눈으로 볼 때, 그 성은 이미 완결된 저항이며, 인간의 어떤 시도도 통하지 않을 것처럼 보입니다. 그러나 바로 그 지점에서 하나님은 전혀 다른 선언을 하십니다.</p>
+      </div>
+
+      <div class="verse-block reveal">
+        “보아라, 내가 여리고와 그 왕과 그 힘센 용사들을 네 손에 넘겨주었다.”
+        <cite>여호수아 6:2</cite>
+      </div>
+
+      <div class="body-text reveal">
+        <p>아직 무너지지 않은 성을 향하여 이미 “넘겨주었다”라고 말씀하시는 하나님. 여기서 하나님의 경륜이 드러납니다. 하나님은 사람이 보는 현재가 아니라, 그분의 목적 안에서 이미 완성된 미래로 말씀하십니다. 이 싸움은 이스라엘의 싸움이 아니라, 하나님께서 이루어 가시는 역사이기 때문입니다.</p>
+        <p>그러므로 그들에게 요구된 것은 전략이 아니라 순종이었습니다.</p>
+      </div>
+
+      <div class="verse-block reveal">
+        “너희는 그 성을 돌되… 육 일 동안 이렇게 해야 한다.”
+        <cite>여호수아 6:3</cite>
+      </div>
+
+      <div class="body-text reveal">
+        <p>침묵하며 돌고, 또 돌고, 아무 일도 일어나지 않는 시간 속을 지나야 했습니다. 하나님은 그들의 손을 먼저 쓰지 않으시고, 그들의 믿음을 먼저 다루고 계셨습니다.</p>
+        <p>그리고 일곱째 날, 외침이 터질 때</p>
+      </div>
+
+      <div class="verse-block reveal">
+        “성벽이 완전히 무너져 내렸다.”
+        <cite>여호수아 6:5, 20</cite>
+      </div>
+
+      <div class="body-text reveal">
+        <p>이 무너짐은 단순한 전쟁의 승리가 아닙니다. 하나님께서 자기 백성을 이끄시는 방식, 곧 ‘사람의 힘이 아닌 하나님의 말씀과 임재’로 이루어지는 통치의 시작입니다. 여리고는 무너졌지만, 사실 무너진 것은 인간적인 의지와 방식이었습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 아간의 죄 -->
+  <section class="chapter sec-achan">
+    <div class="chapter-inner">
+      <div class="chapter-num reveal">CHAPTER TWO · 아간의 죄</div>
+      <h2 class="chapter-title reveal">보이지 않는 균열</h2>
+
+      <div class="body-text reveal">
+        <p>그러나 이야기는 여기서 멈추지 않습니다. 승리의 직후, 보이지 않는 균열이 시작됩니다.</p>
+      </div>
+
+      <div class="verse-block reveal">
+        “이스라엘 자손은 멸망하도록 아주 바쳐진 것을 신실하지 않게 다루고 말았다.”
+        <cite>여호수아 7:1</cite>
+      </div>
+
+      <div class="body-text reveal">
+        <p>겉으로는 하나님의 백성, 그러나 속에서는 하나님을 거스르는 선택. 아간의 탐욕은 개인의 문제가 아니라 공동체 전체를 흔듭니다. 그 결과, 작은 성 아이 앞에서 이스라엘은 무너집니다.</p>
+        <p>여호수아의 탄식이 울려 퍼집니다.</p>
+      </div>
+
+      <div class="verse-block reveal">
+        “주님은 주님의 위대한 이름을 위하여 무엇을 하시렵니까?”
+        <cite>여호수아 7:9</cite>
+      </div>
+
+      <div class="body-text reveal">
+        <p>이 질문은 단순한 절망이 아니라, 하나님의 경륜을 붙드는 질문입니다. 하나님은 곧 응답하십니다.</p>
+      </div>
+
+      <div class="verse-block reveal">
+        “이스라엘이 죄를 지었다… 나는 더 이상 너희와 함께하지 않을 것이다.”
+        <cite>여호수아 7:11-12</cite>
+      </div>
+
+      <div class="highlight-line reveal">
+        하나님은 단지 땅을 주시는 분이 아니라, 거룩한 백성을 얻으시려는 분입니다.<br>
+        땅보다 중요한 것은 ‘하나님과 함께할 수 있는 상태’입니다.
+      </div>
+    </div>
+  </section>
+
+  <!-- 아이 재정복 -->
+  <section class="chapter sec-ai">
+    <div class="chapter-inner">
+      <div class="chapter-num reveal">CHAPTER THREE · 아이</div>
+      <h2 class="chapter-title reveal">다시 주어진 말씀</h2>
+
+      <div class="body-text reveal">
+        <p>죄가 드러나고 제거된 후, 하나님은 다시 말씀하십니다.</p>
+      </div>
+
+      <div class="verse-block reveal">
+        “두려워하지도 말고 겁내지도 마라… 내가 아이를 네 손에 넘겨주었다.”
+        <cite>여호수아 8:1</cite>
+      </div>
+
+      <div class="body-text reveal">
+        <p>같은 말씀, 그러나 이제 다른 상태입니다. 순종과 거룩 안에서 다시 시작된 싸움은 승리로 이어집니다. 그리고 그 승리 이후, 여호수아는 뜻밖의 행동을 합니다.</p>
+      </div>
+
+      <div class="verse-block reveal">
+        “그 후에 여호수아는 축복과 저주에 관한 율법의 모든 말씀을… 다 읽어 주었다.”
+        <cite>여호수아 8:34</cite>
+      </div>
+
+      <div class="body-text reveal">
+        <p>전쟁의 중심에서 율법을 읽습니다. 하나님께서 원하시는 것은 단순한 정복이 아니라, 말씀 안에 사는 백성입니다. 땅을 차지하는 것보다 더 중요한 것은 하나님의 말씀으로 형성되는 삶입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 기브온 -->
+  <section class="chapter sec-gibeon">
+    <div class="chapter-inner">
+      <div class="chapter-num reveal">CHAPTER FOUR · 기브온</div>
+      <h2 class="chapter-title reveal">묻지 않은 순간</h2>
+
+      <div class="body-text reveal">
+        <p>그러나 사람은 여전히 연약합니다. 기브온 사람들의 속임수 앞에서 이스라엘은</p>
+      </div>
+
+      <div class="verse-block reveal">
+        “여호와의 조언을 구하지 않았다.”
+        <cite>여호수아 9:14</cite>
+      </div>
+
+      <div class="body-text reveal">
+        <p>보이는 증거, 낡은 떡과 해어진 옷을 보고 판단합니다. 하나님을 묻지 않는 순간, 인간은 다시 자기 판단으로 돌아갑니다. 그 결과, 원하지 않은 언약이 맺어집니다.</p>
+        <p>그럼에도 하나님은 그 실수까지도 경륜 안에 포함시키십니다. 기브온은 저주 속에서도</p>
+      </div>
+
+      <div class="verse-block reveal">
+        “여호와의 제단을 위하여 나무를 패고 물을 긷는 이들”
+        <cite>여호수아 9:27</cite>
+      </div>
+
+      <div class="body-text reveal">
+        <p>이 됩니다. 심판과 은혜가 동시에 흐릅니다. 이것이 하나님의 역사 방식입니다. 인간의 실패조차도 하나님의 목적 안에서 새로운 자리를 얻게 됩니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 다섯 왕 연합 -->
+  <section class="chapter sec-kings">
+    <div class="chapter-inner">
+      <div class="chapter-num reveal">CHAPTER FIVE · 다섯 왕 연합</div>
+      <h2 class="chapter-title reveal">멈춰선 해와 달</h2>
+
+      <div class="body-text reveal">
+        <p>그리고 전쟁은 계속됩니다. 다섯 왕이 연합하고, 수많은 왕들이 모여 옵니다. 그러나 하나님은 말씀하십니다.</p>
+      </div>
+
+      <div class="verse-block reveal">
+        “그들을 두려워하지 마라. 내가 그들을 네 손에 넘겨주었다.”
+        <cite>여호수아 10:8</cite>
+      </div>
+
+      <div class="body-text reveal">
+        <p>심지어 해와 달조차 멈춥니다.</p>
+      </div>
+
+      <div class="verse-block reveal">
+        “해가 멈추었고 달이 머물러 있었다.”
+        <cite>여호수아 10:13</cite>
+      </div>
+
+      <div class="body-text reveal">
+        <p>자연 질서까지도 하나님의 백성을 위한 싸움에 참여합니다. 왜냐하면</p>
+      </div>
+
+      <div class="verse-block reveal">
+        “여호와께서 이스라엘을 위하여 싸우셨기 때문입니다.”
+        <cite>여호수아 10:14</cite>
+      </div>
+
+      <div class="highlight-line reveal">
+        이것이 점점 드러나는 큰 흐름입니다.<br>
+        이 싸움은 단순한 땅의 쟁취가 아니라, 하나님이 자기 백성과 함께 거하시기 위한 준비입니다.
+      </div>
+    </div>
+  </section>
+
+  <!-- 정착과 평온 -->
+  <section class="chapter sec-rest">
+    <div class="chapter-inner">
+      <div class="chapter-num reveal">CHAPTER SIX · 평온한 땅</div>
+      <h2 class="chapter-title reveal">고요함, 그 이후</h2>
+
+      <div class="body-text reveal">
+        <p>마침내 모든 전쟁이 끝나갑니다.</p>
+      </div>
+
+      <div class="verse-block reveal">
+        “여호수아는 여호와께서 모세에게 하신 모든 말씀대로 온 땅을 차지하였다.”
+        <cite>여호수아 11:23</cite>
+      </div>
+
+      <div class="body-text reveal">
+        <p>그리고 “그 땅은 전쟁이 그치고 평온하게 되었다.”</p>
+        <p>여기서 이야기는 하나의 고요함으로 들어갑니다. 그러나 이 고요함은 단순한 휴식이 아닙니다. 하나님께서 시작부터 이루고자 하신 목적의 한 장면입니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 결론 -->
+  <section class="closing">
+    <div class="closing-inner">
+      <div class="tag reveal">결론</div>
+      <div class="body-text reveal">
+        <p>닫혀 있던 여리고에서 시작된 이야기, 죄로 인해 무너진 아이, 다시 회복된 순종, 실패 속에서도 이어지는 은혜, 그리고 모든 싸움을 통해 얻어진 땅.</p>
+        <p>이 모든 흐름은 하나로 수렴됩니다.</p>
+      </div>
+
+      <div class="divider reveal"></div>
+
+      <div class="body-text reveal">
+        <p>하나님은 단지 적을 무너뜨리시는 분이 아니라,<br>
+        자기 백성을 얻으시고,<br>
+        그들과 함께 거하시며,<br>
+        그들의 삶 전체를 통해 자신의 거룩과 영광을 드러내시려는 분이십니다.</p>
+        <p>결국 이 땅의 정복은 목적이 아니라 과정입니다.<br>
+        하나님의 궁극적인 경륜은,<br>
+        자기 백성이 하나님과 하나 되어 그분의 임재 안에 거하며,<br>
+        그분의 말씀과 거룩 안에서 살아가는 것입니다.</p>
+        <p>그래서 이 이야기를 따라가다 보면 어느 순간 깨닫게 됩니다.</p>
+      </div>
+
+      <div class="final reveal">
+        무너져야 할 것은 성벽이 아니라<br>
+        하나님 없이도 살아갈 수 있다고 여기는 <span class="g">인간의 마음</span>이며,<br><br>
+        얻어야 할 것은 땅이 아니라<br>
+        <span class="g">하나님 자신</span>이심을 말입니다.
+      </div>
+    </div>
+  </section>
+
+  <footer>여호수아기 성경 시리즈 · 6장 – 11장</footer>
+</div>
+
+<script>
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('in');
+      io.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+revealEls.forEach((el, i)=>{
+  el.style.transitionDelay = (i % 6) * 0.06 + 's';
+  io.observe(el);
+});
+
+// Background canvas: drifting embers / dust motes, low opacity, margin-weighted
+const canvas = document.getElementById('bgCanvas');
+const ctx = canvas.getContext('2d');
+let w, h, particles = [];
+
+function resize(){
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight * 1.0;
+}
+window.addEventListener('resize', resize);
+resize();
+
+function initParticles(){
+  particles = [];
+  const count = Math.min(70, Math.floor(w/22));
+  for(let i=0;i<count;i++){
+    const edge = Math.random() < 0.6;
+    particles.push({
+      x: edge ? (Math.random() < 0.5 ? Math.random()*w*0.18 : w - Math.random()*w*0.18) : Math.random()*w,
+      y: Math.random()*h,
+      r: Math.random()*1.6 + 0.4,
+      speedY: -(Math.random()*0.25 + 0.05),
+      speedX: (Math.random()-0.5)*0.15,
+      alpha: Math.random()*0.5 + 0.15,
+      hue: Math.random() < 0.5 ? '200,162,74' : '156,74,38'
+    });
+  }
+}
+initParticles();
+
+function animate(){
+  ctx.clearRect(0,0,w,h);
+  particles.forEach(p=>{
+    p.y += p.speedY;
+    p.x += p.speedX;
+    if(p.y < -10){ p.y = h + 10; }
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(${p.hue},${p.alpha})`;
+    ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+</body>
+</html>

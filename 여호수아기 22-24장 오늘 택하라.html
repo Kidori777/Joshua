@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>여호수아기 22~24장 | 오늘 택하라</title>
+<meta name="description" content="여호수아기 22장부터 24장까지, 증거의 제단과 세겜의 언약, 그리고 오늘의 선택을 따라가는 성경 묵상 시리즈.">
+<meta property="og:title" content="여호수아기 22~24장 | 오늘 택하라">
+<meta property="og:description" content="증거의 제단, 여호수아의 당부, 세겜의 언약 — 하나님께서 사람 안에 그분의 자리를 얻어 가시는 여정.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700;900&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#241B14;
+    --bg-panel:#2C2117;
+    --bg-panel-alt:#332619;
+    --ink:#F3E8D6;
+    --ink-soft:#CBB894;
+    --ink-mute:#9A886A;
+    --ember:#BE7333;
+    --ember-soft:#8F5525;
+    --river:#4A6A69;
+    --river-soft:#33494A;
+    --gold:#CFA352;
+    --line:#4A3B29;
+    --max:640px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--ink-soft);
+    font-family:'Noto Sans KR',sans-serif;
+    font-weight:400;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  ::selection{background:var(--ember-soft);color:var(--ink);}
+
+  a{color:inherit;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px 24px;
+    overflow:hidden;
+  }
+
+  #ember-canvas{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    opacity:.55;
+  }
+
+  .hero-inner{
+    position:relative;
+    z-index:2;
+  }
+
+  .hero-kicker{
+    font-family:'Noto Serif KR',serif;
+    font-weight:500;
+    font-size:15px;
+    letter-spacing:.14em;
+    color:var(--ink-mute);
+    margin-bottom:22px;
+  }
+
+  .hero-title{
+    font-family:'Noto Serif KR',serif;
+    font-weight:900;
+    font-size:clamp(48px,11vw,96px);
+    color:var(--ink);
+    line-height:1.15;
+    letter-spacing:-.01em;
+  }
+
+  .hero-sub{
+    margin-top:26px;
+    font-family:'Noto Serif KR',serif;
+    font-weight:400;
+    font-size:clamp(15px,2vw,18px);
+    color:var(--ink-soft);
+    max-width:480px;
+    margin-left:auto;
+    margin-right:auto;
+    line-height:1.8;
+  }
+
+  .hero-range{
+    margin-top:34px;
+    font-size:13px;
+    letter-spacing:.1em;
+    color:var(--ink-mute);
+  }
+
+  .scroll-cue{
+    position:absolute;
+    bottom:36px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:2;
+    width:1px;
+    height:52px;
+    background:linear-gradient(to bottom, transparent, var(--ink-mute) 40%, transparent);
+  }
+
+  .scroll-cue::after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-2px;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:var(--gold);
+    animation:cue-drop 2.4s ease-in-out infinite;
+  }
+
+  @keyframes cue-drop{
+    0%{top:0;opacity:0;}
+    20%{opacity:1;}
+    80%{opacity:1;}
+    100%{top:48px;opacity:0;}
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section.chapter{
+    position:relative;
+    padding:120px 24px 40px;
+  }
+
+  .chapter-frame{
+    max-width:var(--max);
+    margin:0 auto;
+    position:relative;
+  }
+
+  .chapter-numeral{
+    position:absolute;
+    top:-58px;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:'Noto Serif KR',serif;
+    font-weight:700;
+    font-size:15px;
+    color:var(--ink-mute);
+    letter-spacing:.08em;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+
+  .chapter-numeral::before,
+  .chapter-numeral::after{
+    content:'';
+    width:28px;
+    height:1px;
+    background:var(--line);
+  }
+
+  .chapter-title{
+    font-family:'Noto Serif KR',serif;
+    font-weight:700;
+    font-size:clamp(28px,4.5vw,38px);
+    color:var(--ink);
+    text-align:center;
+    margin-bottom:56px;
+    line-height:1.4;
+  }
+
+  .subtitle{
+    font-family:'Noto Serif KR',serif;
+    font-weight:600;
+    font-size:20px;
+    color:var(--ink);
+    margin:56px 0 26px;
+    padding-top:34px;
+    border-top:1px solid var(--line);
+    text-align:center;
+  }
+
+  .subtitle:first-of-type{
+    border-top:none;
+    padding-top:0;
+    margin-top:0;
+  }
+
+  p.body-text{
+    font-size:16.5px;
+    color:var(--ink-soft);
+    margin-bottom:24px;
+    max-width:56ch;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  blockquote{
+    font-family:'Noto Serif KR',serif;
+    font-weight:500;
+    font-size:19px;
+    color:var(--ink);
+    line-height:1.75;
+    max-width:52ch;
+    margin:34px auto;
+    padding:24px 28px;
+    border-left:2px solid var(--ember);
+    background:linear-gradient(90deg, var(--bg-panel) 0%, transparent 100%);
+  }
+
+  blockquote cite{
+    display:block;
+    margin-top:12px;
+    font-family:'Noto Sans KR',sans-serif;
+    font-style:normal;
+    font-weight:400;
+    font-size:13px;
+    letter-spacing:.05em;
+    color:var(--gold);
+  }
+
+  blockquote.river{
+    border-left-color:var(--river);
+  }
+
+  .verse-stack{
+    max-width:52ch;
+    margin:34px auto;
+    padding:24px 28px;
+    border-left:2px solid var(--river);
+    background:linear-gradient(90deg, var(--bg-panel) 0%, transparent 100%);
+  }
+
+  .verse-stack p{
+    font-family:'Noto Serif KR',serif;
+    font-weight:500;
+    font-size:18px;
+    color:var(--ink);
+    line-height:1.7;
+  }
+
+  .verse-stack p + p{
+    margin-top:10px;
+  }
+
+  .verse-stack cite{
+    display:block;
+    margin-top:14px;
+    font-family:'Noto Sans KR',sans-serif;
+    font-style:normal;
+    font-weight:400;
+    font-size:13px;
+    letter-spacing:.05em;
+    color:var(--gold);
+  }
+
+  .culmination{
+    max-width:44ch;
+    margin:56px auto;
+    padding:36px 12px;
+    text-align:center;
+    font-family:'Noto Serif KR',serif;
+    font-weight:700;
+    font-size:clamp(22px,3.4vw,28px);
+    color:var(--gold);
+    line-height:1.6;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+
+  .stone-divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin:64px 0;
+  }
+
+  .stone-divider span{
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:var(--ink-mute);
+    opacity:.6;
+  }
+
+  .stone-divider span:nth-child(2){
+    background:var(--gold);
+    opacity:.9;
+    width:6px;
+    height:6px;
+  }
+
+  /* reveal */
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .9s ease, transform .9s ease;
+  }
+
+  .reveal.in{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* closing */
+  .closing{
+    padding:100px 24px 140px;
+    text-align:center;
+    position:relative;
+  }
+
+  .closing::before{
+    content:'';
+    display:block;
+    width:1px;
+    height:60px;
+    background:linear-gradient(to bottom, transparent, var(--line));
+    margin:0 auto 40px;
+  }
+
+  .closing-mark{
+    font-family:'Noto Serif KR',serif;
+    font-size:13px;
+    letter-spacing:.2em;
+    color:var(--ink-mute);
+    margin-bottom:28px;
+  }
+
+  footer{
+    text-align:center;
+    padding:40px 24px 60px;
+    font-size:12px;
+    letter-spacing:.05em;
+    color:var(--ink-mute);
+    border-top:1px solid var(--line);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{transition:none;opacity:1;transform:none;}
+    .scroll-cue::after{animation:none;}
+    #ember-canvas{opacity:.25;}
+  }
+
+  @media (max-width:520px){
+    section.chapter{padding:100px 20px 20px;}
+    blockquote,.verse-stack{padding:20px;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <canvas id="ember-canvas"></canvas>
+  <div class="hero-inner">
+    <div class="hero-kicker">여호수아기 성경 시리즈</div>
+    <h1 class="hero-title">오늘<br>택하라</h1>
+    <p class="hero-sub">형제를 위해 안식을 미룬 사람들, 오해 속에서 세운 증거의 제단, 그리고 세겜에서 던져진 마지막 질문을 따라갑니다.</p>
+    <div class="hero-range">여호수아기 22장 — 24장</div>
+  </div>
+  <div class="scroll-cue"></div>
+</section>
+
+<section class="chapter" id="ch22">
+  <div class="chapter-frame">
+    <div class="chapter-numeral">22장</div>
+    <h2 class="chapter-title">부름과 위임</h2>
+
+    <p class="body-text reveal">“여호수아가 르우벤 사람과 갓 사람과 므낫세 반쪽 지파 사람을 불러 놓고…”(여호수아 22:1)</p>
+
+    <p class="body-text reveal">이 부름은 단순한 작별의 장면이 아니라, 하나님의 경륜 안에서 한 시대의 사명을 마친 자들을 향한 인정과 위임의 순간입니다. 그들은 요단 동편에 이미 기업을 받은 사람들이었지만, 형제들을 위하여 자신들의 안식을 뒤로 미루고 함께 싸웠던 자들이었습니다. 그러므로 여호수아는 그들을 향하여 말합니다. “여러분은 … 형제들을 저버리지 않았고 … 책임을 다하였습니다.”(22:3)</p>
+
+    <p class="body-text reveal">이 장면 속에는 하나님의 한 가지 깊은 의도가 드러납니다. 하나님께서 사람을 얻으시는 방식은 개인적인 복을 먼저 누리게 하시는 것이 아니라, 공동의 목적 안에 참여하게 하시는 것입니다. 그들의 순종은 단순한 명령 수행이 아니라, 하나님의 백성이 하나라는 사실을 지켜내는 일이었습니다.</p>
+
+    <blockquote class="reveal">
+      “여호와 여러분의 하나님은 … 안식을 주셨습니다.”
+      <cite>여호수아 22:4</cite>
+    </blockquote>
+
+    <p class="body-text reveal">라는 선언이 이어집니다. 이 안식은 단순히 전쟁이 끝났다는 의미가 아니라, 하나님께서 약속하신 땅과 질서가 세워졌다는 증거입니다. 그러나 여호수아는 여기서 멈추지 않습니다. 그는 말합니다. “여호와 여러분의 하나님을 사랑하고 … 온 마음과 온 혼으로 그분을 섬기십시오.”(22:5)</p>
+
+    <p class="body-text reveal">이 말씀은 매우 중요합니다. 외적인 승리 이후에도 하나님께서 원하시는 것은 여전히 ‘마음’입니다. 땅을 얻는 것이 목적이 아니라, 하나님을 사랑하는 백성을 얻는 것이 목적이기 때문입니다. 이것이 하나님의 경륜의 방향입니다.</p>
+
+    <h3 class="subtitle reveal">증거의 제단</h3>
+
+    <p class="body-text reveal">그들이 돌아가는 길에 요단강 가에 큰 제단을 쌓았을 때(22:10), 사건은 갑자기 긴장으로 치닫습니다. 이스라엘은 그것을 듣고 “맞서 싸우기 위하여 … 모였다.”(22:12)고 기록됩니다. 왜냐하면 하나님께서는 오직 한 제단, 곧 그분이 정하신 방식으로만 예배받기를 원하시기 때문입니다. 제단은 단순한 구조물이 아니라, 하나님과의 관계의 중심이기 때문입니다.</p>
+
+    <p class="body-text reveal">여기서 하나님의 또 다른 의도가 드러납니다. 하나님은 흩어진 개인들이 각자의 방식으로 하나님을 섬기는 것을 원하지 않으십니다. 그분은 하나의 중심, 하나의 증거 안에서 하나의 백성으로 그분을 섬기기를 원하십니다. 그러므로 제단 문제는 곧 하나님과의 관계 문제이며, 공동체의 정체성 문제였습니다.</p>
+
+    <p class="body-text reveal">그러나 동편 지파들의 대답은 이 긴장을 풀어냅니다.</p>
+
+    <blockquote class="river reveal">
+      “이 제단은 … 번제물이나 희생 제물을 바치기 위한 것이 아니라 … 우리와 여러분 사이에 증인으로 삼기 위한 것입니다.”
+      <cite>여호수아 22:27</cite>
+    </blockquote>
+
+    <p class="body-text reveal">그들의 의도는 반역이 아니라, 오히려 ‘분리되지 않기 위한 갈망’이었습니다. 요단강이라는 물리적 경계가 영적인 단절로 이어질 것을 두려워했던 것입니다. 그들은 미래 세대를 바라보고 있었습니다. “훗날 여러분의 자손이 우리 자손에게…”(22:24)</p>
+
+    <p class="body-text reveal">여기서 하나님의 경륜은 한 걸음 더 깊어집니다. 하나님은 단지 현재 세대의 순종만이 아니라, 다음 세대까지 이어지는 증거를 원하십니다. 신앙은 순간적인 열심이 아니라, 계승되어야 할 생명입니다. 그러므로 이 제단은 제사의 장소가 아니라 ‘기억의 장소’, ‘증거의 표식’이 됩니다.</p>
+
+    <p class="body-text reveal">결국 이 사건은 오해에서 시작되었지만, 더 깊은 하나됨으로 마무리됩니다. “오늘 우리는 여호와께서 우리 가운데 계신다는 것을 알았습니다.”(22:31)</p>
+
+    <p class="body-text reveal">하나님의 임재는 단순히 기적이나 전쟁의 승리에서만 나타나는 것이 아니라, 오해가 풀리고 하나됨이 회복되는 그 자리에서도 나타납니다.</p>
+  </div>
+</section>
+
+<div class="stone-divider"><span></span><span></span><span></span></div>
+
+<section class="chapter" id="ch23">
+  <div class="chapter-frame">
+    <div class="chapter-numeral">23장</div>
+    <h2 class="chapter-title">여호수아의 당부</h2>
+
+    <p class="body-text reveal">이제 시간이 흐르고, 여호수아는 늙었습니다.</p>
+
+    <blockquote class="reveal">
+      “나는 늙고 나이가 많이 들었습니다.”
+      <cite>여호수아 23:2</cite>
+    </blockquote>
+
+    <p class="body-text reveal">그의 마지막 말은 과거를 회상하는 동시에 미래를 향한 경고입니다. 그는 분명히 말합니다. “여러분을 위하여 싸우신 분은 바로 여호와 여러분의 하나님이셨습니다.”(23:3)</p>
+
+    <p class="body-text reveal">이 고백은 이스라엘 역사 전체를 꿰뚫는 핵심입니다. 사람이 한 것이 아니라 하나님께서 이루셨다는 인식, 이것이 유지되지 않으면 모든 것은 무너집니다.</p>
+
+    <p class="body-text reveal">그래서 그는 이어서 말합니다. “여호와 여러분의 하나님을 사랑하십시오.”(23:11)</p>
+
+    <p class="body-text reveal">그러나 동시에 엄중한 경고도 덧붙입니다.</p>
+
+    <blockquote class="river reveal">
+      “만일 여러분이 … 그들과 결혼하며 … 왕래한다면 … 그들이 여러분에게 올무와 덫이 되고 … 눈에 가시가 될 것입니다.”
+      <cite>여호수아 23:12-13</cite>
+    </blockquote>
+
+    <p class="body-text reveal">하나님의 경륜은 분명합니다. 그분의 백성은 세상 속에 살지만, 세상과 섞여 그 정체성을 잃어서는 안 됩니다. 사랑은 하나님께 향해야 하며, 그 사랑이 흐려질 때 멸망이 시작됩니다.</p>
+
+    <p class="body-text reveal">여호수아의 말은 더 깊어집니다.</p>
+
+    <blockquote class="reveal">
+      “여호와께서 … 말씀하신 모든 좋은 일이 하나도 어김없이 이루어졌습니다.”
+      <cite>여호수아 23:14</cite>
+    </blockquote>
+
+    <p class="body-text reveal">이 고백은 단순한 감사가 아니라, 하나님의 신실하심에 대한 증거입니다. 그리고 바로 그 신실하심 때문에, 경고 역시 반드시 이루어질 것임을 말합니다.</p>
+  </div>
+</section>
+
+<div class="stone-divider"><span></span><span></span><span></span></div>
+
+<section class="chapter" id="ch24">
+  <div class="chapter-frame">
+    <div class="chapter-numeral">24장</div>
+    <h2 class="chapter-title">세겜의 언약</h2>
+
+    <p class="body-text reveal">이제 마지막 장면, 세겜입니다.</p>
+
+    <blockquote class="reveal">
+      “여호수아가 … 세겜으로 불러 모으고 … 하나님 앞에 섰다.”
+      <cite>여호수아 24:1</cite>
+    </blockquote>
+
+    <p class="body-text reveal">이 장면은 단순한 집회가 아니라, 하나님 앞에서 역사 전체를 재해석하는 자리입니다. 여호수아는 하나님께서 하신 일을 처음부터 다시 들려줍니다.</p>
+
+    <div class="verse-stack reveal">
+      <p>“내가 너희 조상 아브라함을 … 이끌어 내어…”</p>
+      <p>“내가 모세와 아론을 보냈고…”</p>
+      <p>“내가 너희를 이끌어 내었다.”</p>
+      <p>“내가 … 그들을 너희 손에 넘겨주었다.”</p>
+      <cite>여호수아 24:3, 5, 6, 8</cite>
+    </div>
+
+    <p class="body-text reveal">이 반복되는 “내가”라는 표현은 모든 역사의 주체가 하나님이심을 강조합니다. 인간의 선택과 노력은 존재하지만, 궁극적인 흐름은 하나님의 손 안에 있습니다.</p>
+
+    <p class="body-text reveal">그리고 마침내 선택의 순간이 주어집니다.</p>
+
+    <blockquote class="river reveal">
+      “오늘 여러분은 … 선택하십시오 … 오직 나와 내 집은 여호와를 섬길 것입니다.”
+      <cite>여호수아 24:15</cite>
+    </blockquote>
+
+    <p class="body-text reveal">이 선택은 단순한 종교적 결단이 아니라, 존재의 방향을 결정하는 것입니다. 하나님께 속할 것인가, 아니면 다른 것에 속할 것인가.</p>
+
+    <p class="body-text reveal">그러나 여호수아는 인간의 연약함을 알고 있습니다.</p>
+
+    <blockquote class="reveal">
+      “여러분은 여호와를 섬길 수 없습니다.”
+      <cite>여호수아 24:19</cite>
+    </blockquote>
+
+    <p class="body-text reveal">이 말은 부정이 아니라, 경고입니다. 하나님은 “거룩하신 하나님”이며 “질투하시는 하나님”이시기 때문입니다. 인간의 힘으로는 그분을 온전히 섬길 수 없다는 사실을 드러내는 것입니다.</p>
+
+    <p class="body-text reveal">그럼에도 불구하고 백성은 고백합니다.</p>
+
+    <blockquote class="river reveal">
+      “우리는 여호와를 섬길 것입니다.”
+      <cite>여호수아 24:21</cite>
+    </blockquote>
+
+    <p class="body-text reveal">그래서 여호수아는 그들의 고백을 ‘증거’로 남깁니다. 돌을 세우며 말합니다.</p>
+
+    <blockquote class="reveal">
+      “이 돌이 … 증인이 될 것입니다.”
+      <cite>여호수아 24:27</cite>
+    </blockquote>
+
+    <p class="body-text reveal">이 돌은 침묵하는 존재이지만, 하나님의 말씀을 들은 증인으로 세워집니다. 이는 하나님과 사람 사이의 관계가 단순한 감정이 아니라, 역사 속에 기록되고 남겨지는 실재임을 보여줍니다.</p>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="chapter-frame">
+    <div class="closing-mark reveal">마침, 그리고 이어짐</div>
+
+    <p class="body-text reveal">그리고 이야기는 조용히 마무리됩니다.</p>
+
+    <blockquote class="reveal">
+      “여호수아가 백십 세에 죽었다.”
+      <cite>여호수아 24:29</cite>
+    </blockquote>
+
+    <p class="body-text reveal">한 사람의 시대는 끝났습니다. 그러나 더 중요한 말씀이 이어집니다.</p>
+
+    <blockquote class="river reveal">
+      “이스라엘은 여호수아가 살아 있는 동안 … 여호와를 섬겼고 … 장로들이 살아 있는 동안 여호와를 섬겼다.”
+      <cite>여호수아 24:31</cite>
+    </blockquote>
+
+    <p class="body-text reveal">여기서 우리는 하나의 질문에 이르게 됩니다. 하나님께서 원하신 것은 단지 한 지도자의 위대한 생애였는가, 아니면 계속 이어지는 백성의 삶이었는가.</p>
+
+    <p class="body-text reveal">결국 이 모든 흐름은 하나의 방향으로 수렴됩니다.</p>
+
+    <p class="body-text reveal">하나님은 사람을 통해 땅을 정복하게 하시고, 질서를 세우시며, 언약을 맺게 하시고, 증거를 남기게 하십니다. 그러나 그 모든 과정의 중심에는 한 가지 목적이 있습니다.</p>
+
+    <div class="culmination reveal">하나님 자신을 얻으시는 것.</div>
+
+    <p class="body-text reveal">땅도, 승리도, 제단도, 돌도 모두 그 목적을 위한 도구입니다. 하나님께서 원하시는 것은 그분을 사랑하고, 그분을 선택하며, 그분과 하나 되는 백성입니다.</p>
+
+    <p class="body-text reveal">그래서 이 이야기를 따라가다 보면, 마지막에 이르러 비로소 깨닫게 됩니다.</p>
+
+    <p class="body-text reveal">이 모든 역사는 단순한 정복의 기록이 아니라, 하나님께서 사람 안에 그분의 자리를 얻어 가시는 여정이었다는 것을.</p>
+
+    <p class="body-text reveal">그리고 그 여정은 여호수아의 죽음으로 끝나는 것이 아니라, 오늘을 사는 이들에게까지 이어지고 있습니다.</p>
+  </div>
+</section>
+
+<footer>여호수아기 22장 — 24장 · 오늘 택하라</footer>
+
+<script>
+(function(){
+  // ember particle canvas — hero only
+  var canvas = document.getElementById('ember-canvas');
+  var ctx = canvas.getContext('2d');
+  var hero = document.querySelector('.hero');
+  var w, h, particles = [];
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function resize(){
+    w = canvas.width = hero.offsetWidth;
+    h = canvas.height = hero.offsetHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function makeParticle(){
+    return {
+      x: Math.random() * w,
+      y: h + Math.random() * 60,
+      r: 0.6 + Math.random() * 1.8,
+      speed: 0.25 + Math.random() * 0.55,
+      drift: (Math.random() - 0.5) * 0.4,
+      flicker: Math.random() * Math.PI * 2,
+      hue: Math.random() > 0.35 ? '190,115,51' : '207,163,82'
+    };
+  }
+
+  var count = w < 520 ? 26 : 46;
+  for (var i = 0; i < count; i++) particles.push(makeParticle());
+
+  function tick(){
+    ctx.clearRect(0, 0, w, h);
+    for (var i = 0; i < particles.length; i++){
+      var p = particles[i];
+      p.y -= p.speed;
+      p.x += p.drift;
+      p.flicker += 0.05;
+      if (p.y < -20){
+        particles[i] = makeParticle();
+        continue;
+      }
+      var alpha = 0.15 + Math.abs(Math.sin(p.flicker)) * 0.35;
+      var fadeTop = Math.min(1, p.y / (h * 0.7));
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + p.hue + ',' + (alpha * fadeTop) + ')';
+      ctx.fill();
+    }
+    if (!reduced) requestAnimationFrame(tick);
+  }
+  tick();
+
+  // scroll reveal
+  var els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+
+</body>
+</html>

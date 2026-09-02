@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>하나님을 유업으로 — 여호수아기 13~21장</title>
+<meta name="description" content="여호수아기 13장부터 21장까지, 땅의 분배와 유업을 통해 드러나는 하나님의 경륜을 묵상합니다.">
+<meta property="og:title" content="하나님을 유업으로 — 여호수아기 13~21장">
+<meta property="og:description" content="아직 차지해야 할 땅이 남아 있다는 말씀에서 시작해, 제비뽑기와 갈렙의 믿음, 도피성과 레위인의 흩어짐을 지나 '하나님 자신이 유업'이라는 결론에 이르는 묵상.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#221c14;
+    --bg-1:#2b2318;
+    --bg-2:#332a1c;
+    --ink:#ece3d2;
+    --ink-dim:#c9bda3;
+    --ink-faint:#a2937a;
+    --gold:#c99a44;
+    --gold-soft:#e0bc79;
+    --clay:#9c5b3c;
+    --teal:#4d6b5b;
+    --teal-soft:#7ea390;
+    --line:rgba(201,154,68,0.22);
+    --serif:'Noto Serif KR', serif;
+    --sans:'Noto Sans KR', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg-0);
+    color:var(--ink);
+    font-family:var(--serif);
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  #contour-canvas{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    opacity:0.16;
+    pointer-events:none;
+  }
+
+  .wrap{
+    position:relative;
+    z-index:1;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:8vh 6vw 10vh;
+    position:relative;
+  }
+  .hero-eyebrow{
+    font-family:var(--sans);
+    font-size:0.82rem;
+    letter-spacing:0.14em;
+    color:var(--gold-soft);
+    margin-bottom:1.6rem;
+    font-weight:400;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 6.4vw, 4.6rem);
+    font-weight:300;
+    letter-spacing:-0.01em;
+    margin:0 0 1.4rem;
+    color:var(--ink);
+  }
+  .hero h1 span{
+    display:block;
+    font-weight:600;
+    color:var(--gold-soft);
+    margin-top:0.3rem;
+  }
+  .hero-range{
+    font-family:var(--sans);
+    font-size:0.95rem;
+    color:var(--ink-faint);
+    letter-spacing:0.06em;
+    margin-bottom:3.2rem;
+  }
+  .hero-verse{
+    max-width:640px;
+    font-size:clamp(1.05rem, 2.1vw, 1.25rem);
+    color:var(--ink-dim);
+    font-weight:300;
+    line-height:2;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:2rem 0;
+  }
+  .hero-verse cite{
+    display:block;
+    font-style:normal;
+    font-family:var(--sans);
+    font-size:0.82rem;
+    color:var(--gold);
+    margin-top:1rem;
+    letter-spacing:0.04em;
+  }
+  .scroll-hint{
+    position:absolute;
+    bottom:5vh;
+    font-family:var(--sans);
+    font-size:0.75rem;
+    color:var(--ink-faint);
+    letter-spacing:0.1em;
+  }
+
+  /* ---------- Sections ---------- */
+  .section{
+    max-width:680px;
+    margin:0 auto;
+    padding:9vh 6vw;
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity 0.9s ease, transform 0.9s ease;
+  }
+  .section.visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+  .section-num{
+    font-family:var(--sans);
+    font-size:0.78rem;
+    color:var(--teal-soft);
+    letter-spacing:0.1em;
+    margin-bottom:0.9rem;
+  }
+  .section h2{
+    font-size:clamp(1.5rem, 3vw, 1.9rem);
+    font-weight:500;
+    color:var(--gold-soft);
+    margin:0 0 1.5rem;
+    line-height:1.5;
+  }
+  .section p{
+    color:var(--ink-dim);
+    font-size:1.05rem;
+    font-weight:300;
+    margin:0 0 1.3rem;
+  }
+  .verse{
+    margin:2rem 0;
+    padding:1.6rem 1.8rem;
+    background:var(--bg-1);
+    border-left:2px solid var(--gold);
+    border-radius:2px;
+  }
+  .verse p{
+    color:var(--ink);
+    font-size:1.05rem;
+    margin:0 0 0.6rem;
+  }
+  .verse cite{
+    display:block;
+    font-style:normal;
+    font-family:var(--sans);
+    font-size:0.8rem;
+    color:var(--gold);
+    letter-spacing:0.03em;
+  }
+  .verse.refuge{ border-left-color:var(--teal-soft); }
+  .verse.refuge cite{ color:var(--teal-soft); }
+
+  .divider{
+    max-width:680px;
+    margin:0 auto;
+    padding:0 6vw;
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    opacity:0.5;
+  }
+  .divider svg{ flex-shrink:0; }
+  .divider .line{
+    flex:1;
+    height:1px;
+    background:linear-gradient(90deg, transparent, var(--line), transparent);
+  }
+
+  /* ---------- Closing ---------- */
+  .closing{
+    max-width:680px;
+    margin:0 auto;
+    padding:12vh 6vw 16vh;
+    text-align:center;
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity 0.9s ease, transform 0.9s ease;
+  }
+  .closing.visible{ opacity:1; transform:translateY(0); }
+  .closing h2{
+    font-size:clamp(1.7rem, 3.6vw, 2.3rem);
+    font-weight:300;
+    color:var(--ink);
+    line-height:1.7;
+    margin-bottom:2rem;
+  }
+  .closing h2 strong{
+    color:var(--gold-soft);
+    font-weight:600;
+  }
+  .closing p{
+    color:var(--ink-dim);
+    font-size:1.02rem;
+    font-weight:300;
+    max-width:520px;
+    margin:0 auto 1.2rem;
+  }
+  .closing-mark{
+    margin-top:2.5rem;
+    font-family:var(--sans);
+    font-size:0.78rem;
+    color:var(--ink-faint);
+    letter-spacing:0.16em;
+  }
+
+  ::selection{ background:var(--gold); color:var(--bg-0); }
+
+  a{ color:inherit; }
+  :focus-visible{
+    outline:2px solid var(--gold-soft);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="contour-canvas" aria-hidden="true"></canvas>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="hero-eyebrow">여호수아기 성경 시리즈</div>
+    <h1>하나님을 유업으로<span>땅의 분배, 완성되지 않은 약속</span></h1>
+    <div class="hero-range">여호수아 13장 — 21장</div>
+    <div class="hero-verse">
+      “이제 여호수아가 늙고 나이가 많이 들자, 여호와께서 그에게 말씀하셨다. ‘너는 이미 늙고 나이가 많이 들었는데, 차지해야 할 땅은 매우 많이 남아 있다.’”
+      <cite>여호수아 13:1</cite>
+    </div>
+    <div class="scroll-hint">아래로 스크롤</div>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <svg width="28" height="16" viewBox="0 0 28 16"><path d="M1 8 Q 7 1, 14 8 T 27 8" fill="none" stroke="#c99a44" stroke-width="1"/></svg>
+    <div class="line"></div>
+  </div>
+
+  <section class="section">
+    <div class="section-num">아직 남은 땅</div>
+    <h2>정복이 아니라 완전한 소유를 향해</h2>
+    <p>이 말씀은 단순한 현실의 진술이 아니라, 하나님의 경륜이 아직 끝나지 않았음을 드러내는 선언입니다. 이미 많은 전쟁을 지나왔고, 가나안의 주요 세력은 꺾였지만, 하나님께서 의도하신 목적은 “정복” 자체가 아니라 “완전한 소유”와 “분배”에 있기 때문입니다. 하나님은 땅을 주시되, 그 땅이 각 지파 안에서 생명이 되고 질서가 되며 하나님과의 관계 안에서 살아 움직이도록 하시려는 것입니다.</p>
+    <p>이어지는 말씀 속에서 하나님은 남아 있는 땅의 경계를 하나하나 언급하십니다. 이 열거는 단순한 지리적 설명이 아닙니다. 하나님은 아직 정복되지 않은 영역까지도 이미 자신의 계획 안에 포함시키고 계십니다.</p>
+    <div class="verse">
+      <p>“블레셋 족속의 모든 지역… 시돈 족속의 땅…”</p>
+      <cite>여호수아 13:2-6</cite>
+    </div>
+    <div class="verse">
+      <p>“내가 직접 이스라엘 자손 앞에서 이들을 쫓아낼 것이니…”</p>
+      <cite>여호수아 13:6</cite>
+    </div>
+    <p>여기서 드러나는 하나님의 의도는 분명합니다. 싸움의 주체는 인간이 아니라 하나님이시며, 인간은 그분의 약속 안에서 순종으로 참여하는 존재입니다.</p>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <svg width="28" height="16" viewBox="0 0 28 16"><path d="M1 8 Q 7 1, 14 8 T 27 8" fill="none" stroke="#c99a44" stroke-width="1"/></svg>
+    <div class="line"></div>
+  </div>
+
+  <section class="section">
+    <div class="section-num">불완전한 순종</div>
+    <h2>지연되는 완성</h2>
+    <p>그러나 동시에 성경은 조용히 한 가지 사실을 기록합니다.</p>
+    <div class="verse">
+      <p>“그러나 이스라엘 자손이 그술 족속과 마아갓 족속은 쫓아내지 않아…”</p>
+      <cite>여호수아 13:13</cite>
+    </div>
+    <p>이 구절은 하나님의 경륜 속에 인간의 불완전한 순종이 끼어들 수 있음을 보여줍니다. 하나님은 완전한 땅을 계획하시지만, 사람은 부분적으로만 그것을 취합니다. 이 긴장 속에서 하나님의 계획은 중단되지 않지만, 그 완성은 지연됩니다.</p>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <svg width="28" height="16" viewBox="0 0 28 16"><path d="M1 8 Q 7 1, 14 8 T 27 8" fill="none" stroke="#c99a44" stroke-width="1"/></svg>
+    <div class="line"></div>
+  </div>
+
+  <section class="section">
+    <div class="section-num">레위 지파의 유업</div>
+    <h2>땅이 아니라 하나님 자신</h2>
+    <p>그리고 레위 지파에 대하여 이렇게 말씀하십니다.</p>
+    <div class="verse">
+      <p>“여호와 이스라엘의 하나님께서 그들의 유업이시기 때문이다.”</p>
+      <cite>여호수아 13:33</cite>
+    </div>
+    <p>이것은 놀라운 전환입니다. 어떤 지파는 땅을 받고, 어떤 지파는 하나님 자신을 유업으로 받습니다. 하나님께서 의도하신 궁극적인 유업은 단순한 땅이 아니라 하나님 자신이라는 사실이 여기서 드러나기 시작합니다.</p>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <svg width="28" height="16" viewBox="0 0 28 16"><path d="M1 8 Q 7 1, 14 8 T 27 8" fill="none" stroke="#c99a44" stroke-width="1"/></svg>
+    <div class="line"></div>
+  </div>
+
+  <section class="section">
+    <div class="section-num">제비뽑기</div>
+    <h2>인간의 선택이 아니라 하나님의 배정</h2>
+    <p>시간이 흐르며 땅은 제비로 나누어집니다.</p>
+    <div class="verse">
+      <p>“제비를 뽑아… 여호와께서 모세에게 명령하신 대로…”</p>
+      <cite>여호수아 14:2</cite>
+    </div>
+    <p>이 장면은 우연처럼 보이지만, 실상은 하나님께서 각 지파의 위치와 경계를 정하시는 질서입니다. 인간의 선택이 아니라 하나님의 배정입니다. 하나님은 각 사람과 각 공동체를 자신이 정하신 자리 안에 두시며, 그 자리에서 하나님을 누리게 하십니다.</p>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <svg width="28" height="16" viewBox="0 0 28 16"><path d="M1 8 Q 7 1, 14 8 T 27 8" fill="none" stroke="#c99a44" stroke-width="1"/></svg>
+    <div class="line"></div>
+  </div>
+
+  <section class="section">
+    <div class="section-num">갈렙</div>
+    <h2>믿음으로 참여하는 사람</h2>
+    <p>그 가운데 한 사람, 갈렙이 등장합니다.</p>
+    <div class="verse">
+      <p>“나는 여호와 나의 하나님을 온전히 따랐습니다.”</p>
+      <cite>여호수아 14:8</cite>
+    </div>
+    <p>그는 나이가 많아졌지만, 약속을 붙잡고 있습니다.</p>
+    <div class="verse">
+      <p>“여호와께서 나와 함께하신다면… 내가 그들을 쫓아내겠습니다.”</p>
+      <cite>여호수아 14:12</cite>
+    </div>
+    <p>갈렙의 이야기는 하나님의 경륜 속에서 ‘믿음으로 참여하는 사람’이 어떤 존재인지를 보여줍니다. 그는 단순히 땅을 요구하는 것이 아니라, 하나님과 함께 약속을 성취하는 삶을 선택합니다. 그리고 그 결과,</p>
+    <div class="verse">
+      <p>“헤브론이… 갈렙의 유업이 되었다.”</p>
+      <cite>여호수아 14:14</cite>
+    </div>
+    <p>하나님의 약속은 믿음을 통해 개인의 역사 안에서 실현됩니다.</p>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <svg width="28" height="16" viewBox="0 0 28 16"><path d="M1 8 Q 7 1, 14 8 T 27 8" fill="none" stroke="#c99a44" stroke-width="1"/></svg>
+    <div class="line"></div>
+  </div>
+
+  <section class="section">
+    <div class="section-num">유다 지파의 경계</div>
+    <h2>이름과 장소에 새겨진 약속</h2>
+    <p>유다 지파의 경계가 길게 이어지고, 수많은 성읍들이 나열됩니다. 이 반복되는 기록은 지루한 목록처럼 보일 수 있지만, 사실은 하나님께서 약속하신 것이 얼마나 구체적으로 이루어지는지를 보여줍니다. 하나님은 추상적으로 주시는 분이 아니라, 이름과 장소와 경계를 통해 현실 속에 약속을 새기시는 분이십니다.</p>
+    <p>그러나 다시 한 번 반복되는 구절이 나타납니다.</p>
+    <div class="verse">
+      <p>“여부스 족속을 쫓아내지 못하였기 때문에…”</p>
+      <cite>여호수아 15:63</cite>
+    </div>
+    <p>하나님의 약속은 완전하지만, 인간의 순종은 여전히 불완전합니다. 이 긴장은 계속해서 이어집니다.</p>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <svg width="28" height="16" viewBox="0 0 28 16"><path d="M1 8 Q 7 1, 14 8 T 27 8" fill="none" stroke="#c99a44" stroke-width="1"/></svg>
+    <div class="line"></div>
+  </div>
+
+  <section class="section">
+    <div class="section-num">요셉 자손</div>
+    <h2>받은 것을 개척할 책임</h2>
+    <p>요셉 자손에게 이르러서는 또 다른 모습이 드러납니다.</p>
+    <div class="verse">
+      <p>“왜… 한 몫의 유업을 받게 하셨습니까?”</p>
+      <cite>여호수아 17:14</cite>
+    </div>
+    <p>그들은 이미 많은 것을 받았지만 만족하지 못합니다. 이에 대해 여호수아는 말합니다.</p>
+    <div class="verse">
+      <p>“산림으로 올라가… 개간하십시오.”</p>
+      <cite>여호수아 17:15</cite>
+    </div>
+    <p>하나님의 경륜은 단순히 주시는 것에서 끝나지 않고, 받은 것을 확장하고 개척하는 책임까지 포함합니다. 믿음은 수동적인 수용이 아니라 능동적인 참여입니다.</p>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <svg width="28" height="16" viewBox="0 0 28 16"><path d="M1 8 Q 7 1, 14 8 T 27 8" fill="none" stroke="#c99a44" stroke-width="1"/></svg>
+    <div class="line"></div>
+  </div>
+
+  <section class="section">
+    <div class="section-num">느슨함에 대한 책망</div>
+    <h2>주어졌으나 아직 취하지 않은 것</h2>
+    <p>이후 일곱 지파가 아직 땅을 받지 못한 상태에서 여호수아는 말합니다.</p>
+    <div class="verse">
+      <p>“언제까지… 느슨하게 지내려는 것입니까?”</p>
+      <cite>여호수아 18:3</cite>
+    </div>
+    <p>하나님의 약속이 주어졌음에도 그것을 실제로 취하지 않는 태도에 대한 책망입니다. 하나님은 주셨지만, 사람은 그 안으로 들어가야 합니다.</p>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <svg width="28" height="16" viewBox="0 0 28 16"><path d="M1 8 Q 7 1, 14 8 T 27 8" fill="none" stroke="#7ea390" stroke-width="1"/></svg>
+    <div class="line"></div>
+  </div>
+
+  <section class="section">
+    <div class="section-num">도피성</div>
+    <h2>공의와 함께 이루시는 자비</h2>
+    <p>그렇게 모든 지파가 땅을 나누어 받고, 마지막에 이르러 이렇게 기록됩니다.</p>
+    <div class="verse">
+      <p>“여호와께서… 모든 땅을 이스라엘에게 주셨으므로…”</p>
+      <cite>여호수아 21:43</cite>
+    </div>
+    <div class="verse">
+      <p>“한 말씀도 어김없이 모두 이루어졌다.”</p>
+      <cite>여호수아 21:45</cite>
+    </div>
+    <p>여기서 비로소 이야기는 하나의 결론에 이릅니다. 하나님은 말씀하신 것을 반드시 이루시는 분이십니다. 인간의 부족함과 지연 속에서도, 하나님의 약속은 결코 무너지지 않습니다.</p>
+    <p>그리고 도피성이 세워집니다.</p>
+    <div class="verse refuge">
+      <p>“실수로… 사람을 죽인 살인자가 그곳으로 피신하게 하여라.”</p>
+      <cite>여호수아 20:3</cite>
+    </div>
+    <p>이 장면은 하나님의 경륜이 단순한 소유와 분배를 넘어 ‘생명을 보존하는 은혜’까지 포함하고 있음을 보여줍니다. 하나님은 공의뿐 아니라 자비를 함께 이루시는 분이십니다.</p>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <svg width="28" height="16" viewBox="0 0 28 16"><path d="M1 8 Q 7 1, 14 8 T 27 8" fill="none" stroke="#7ea390" stroke-width="1"/></svg>
+    <div class="line"></div>
+  </div>
+
+  <section class="section">
+    <div class="section-num">레위인</div>
+    <h2>흩어져 거하는 존재</h2>
+    <p>마침내 레위인들이 온 땅 가운데 흩어져 거하게 됩니다. 그들은 특정 지역이 아니라, 이스라엘 전체 가운데 하나님을 대표하는 존재입니다. 이는 하나님께서 한 장소에 머무르지 않고, 백성 전체 가운데 거하시기를 원하신다는 뜻입니다.</p>
+  </section>
+
+  <section class="closing">
+    <h2>땅은 목적이 아니라 <strong>과정</strong>이며,<br>유업은 소유가 아니라 <strong>관계</strong>를 담는 그릇입니다.</h2>
+    <p>이 모든 흐름을 따라가다 보면, 처음의 질문으로 다시 돌아오게 됩니다. 왜 하나님은 단순히 땅을 주시는 데서 끝내지 않으시고, 이렇게 나누고, 배치하고, 남겨두고, 다시 요구하시는가?</p>
+    <p>어떤 이는 땅을 받고, 어떤 이는 하나님 자신을 유업으로 받으며, 어떤 이는 믿음으로 더 깊이 들어가고, 어떤 이는 여전히 남겨 둡니다. 이 모든 과정 속에서 하나님은 한 가지를 이루고 계십니다. 곧, 하나님께서 사람 가운데 거하시며, 각 사람과 각 지파가 하나님 안에서 자기 몫을 누리는 공동체를 세우시는 것입니다.</p>
+    <p>그러므로 이 긴 이야기는 단순한 땅 분배의 기록이 아니라, 하나님께서 자신의 백성을 얻으시고, 그 백성 안에서 거하시며, 그들로 하여금 하나님 자신을 유업으로 누리게 하시려는 경륜의 전개입니다.</p>
+    <p>처음에 “아직 차지해야 할 땅이 남아 있다”고 하신 그 말씀은, 결국 단순한 땅이 아니라 하나님 자신을 완전히 얻는 여정이 아직 끝나지 않았음을 의미하고 있었던 것입니다.</p>
+    <div class="closing-mark">여호수아 13 — 21</div>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  // scroll reveal
+  var targets = document.querySelectorAll('.section, .closing');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    targets.forEach(function(t){ io.observe(t); });
+  } else {
+    targets.forEach(function(t){ t.classList.add('visible'); });
+  }
+
+  // subtle contour-line canvas: drifting horizontal boundary lines, like a survey map
+  var canvas = document.getElementById('contour-canvas');
+  var ctx = canvas.getContext('2d');
+  var w, h, dpr;
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = canvas.width = window.innerWidth * dpr;
+    h = canvas.height = window.innerHeight * dpr;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  var lines = [];
+  var lineCount = 7;
+  for(var i=0;i<lineCount;i++){
+    lines.push({
+      baseY: (i+1)/(lineCount+1),
+      amp: 26 + Math.random()*40,
+      speed: 0.00006 + Math.random()*0.00008,
+      phase: Math.random()*Math.PI*2,
+      widthFactor: 0.7 + Math.random()*0.5
+    });
+  }
+
+  var colors = ['#c99a44', '#9c5b3c', '#7ea390'];
+
+  function draw(t){
+    ctx.clearRect(0,0,w,h);
+    lines.forEach(function(ln, idx){
+      var y0 = h * ln.baseY;
+      ctx.beginPath();
+      ctx.strokeStyle = colors[idx % colors.length];
+      ctx.lineWidth = 1 * dpr;
+      var step = 14 * dpr;
+      for(var x=0; x<=w; x+=step){
+        var y = y0 + Math.sin(x*0.004*ln.widthFactor + t*ln.speed + ln.phase) * ln.amp * dpr;
+        if(x===0){ ctx.moveTo(x,y); } else { ctx.lineTo(x,y); }
+      }
+      ctx.stroke();
+    });
+    if(!prefersReduced){
+      requestAnimationFrame(draw);
+    }
+  }
+  requestAnimationFrame(draw);
+})();
+</script>
+
+</body>
+</html>
