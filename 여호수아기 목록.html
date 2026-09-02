@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>여호수아기 — 성경 묵상 시리즈</title>
+<meta name="description" content="모세의 죽음에서 세겜의 언약 갱신까지, 여호수아기 전체를 네 편으로 나누어 따라가는 성경 묵상 시리즈 목록.">
+<meta property="og:title" content="여호수아기 — 성경 묵상 시리즈">
+<meta property="og:description" content="모세의 죽음에서 세겜의 언약 갱신까지, 여호수아기 전체를 네 편으로 나누어 따라가는 성경 묵상 시리즈 목록.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #26211a;
+    --bg-raised: #2f2820;
+    --stone: #6b5c48;
+    --line: #443a2d;
+    --ink: #ece4d3;
+    --ink-dim: #b8ab93;
+    --gold: #c79a52;
+    --clay: #b0603c;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .field{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 60% 40% at 15% 0%, rgba(199,154,82,0.10), transparent 60%),
+      radial-gradient(ellipse 50% 35% at 100% 100%, rgba(176,96,60,0.08), transparent 60%);
+  }
+  main{
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 6rem 1.75rem 5rem;
+  }
+
+  header.hero{
+    margin-bottom: 4.5rem;
+    text-align: center;
+  }
+  .eyebrow{
+    font-family: 'Noto Serif KR', serif;
+    font-size: 0.95rem;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+    margin-bottom: 1.1rem;
+  }
+  h1{
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 700;
+    font-size: clamp(2.1rem, 6vw, 3rem);
+    color: var(--ink);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+  .hero-desc{
+    margin: 1.6rem auto 0;
+    max-width: 34rem;
+    color: var(--ink-dim);
+    font-size: 1.02rem;
+    line-height: 1.85;
+  }
+  .hero-rule{
+    margin: 2.6rem auto 0;
+    width: 4rem;
+    height: 2px;
+    background: var(--gold);
+  }
+
+  .series{
+    display: flex;
+    flex-direction: column;
+  }
+  .entry{
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 2.6rem 0;
+    border-bottom: 1px solid var(--line);
+    transition: padding-left 0.25s ease;
+  }
+  .series .entry:first-child{ padding-top: 0; }
+  .series .entry:last-child{ border-bottom: none; }
+  .entry:hover{ padding-left: 0.4rem; }
+
+  .entry-top{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+  }
+  .range{
+    font-family: 'Noto Serif KR', serif;
+    color: var(--clay);
+    font-size: 0.98rem;
+    white-space: nowrap;
+  }
+  .arrow{
+    color: var(--stone);
+    font-size: 1rem;
+    transition: transform 0.25s ease, color 0.25s ease;
+  }
+  .entry:hover .arrow{
+    color: var(--gold);
+    transform: translateX(4px);
+  }
+
+  .entry-title{
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--ink);
+    line-height: 1.5;
+    margin-bottom: 0.9rem;
+  }
+  .entry-desc{
+    color: var(--ink-dim);
+    font-size: 0.98rem;
+    line-height: 1.8;
+    max-width: 32rem;
+  }
+
+  footer{
+    margin-top: 4.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    color: var(--stone);
+    font-size: 0.88rem;
+  }
+
+  @media (max-width: 480px){
+    main{ padding: 4rem 1.25rem 3.5rem; }
+    .entry-top{ flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+<div class="field"></div>
+<main>
+  <header class="hero">
+    <p class="eyebrow">성경 묵상 시리즈</p>
+    <h1>여호수아기</h1>
+    <p class="hero-desc">
+      모세가 죽고 요단강 앞에 선 백성에게 하나님은 "강하고 담대하라" 말씀하십니다.
+      정복과 분배, 그리고 세겜에서의 마지막 선택에 이르기까지 —
+      여호수아기 전체를 네 편으로 나누어 하나님의 경륜을 따라갑니다.
+    </p>
+    <div class="hero-rule"></div>
+  </header>
+
+  <section class="series">
+    <a class="entry" href="여호수아기 1-5장 강해져라.html">
+      <div class="entry-top">
+        <span class="range">1 – 5장</span>
+        <span class="arrow">→</span>
+      </div>
+      <h2 class="entry-title">강해져라, 담대하라</h2>
+      <p class="entry-desc">모세의 죽음에서 여호와의 군대 대장을 만나기까지, 여호수아기 1~5장에 담긴 하나님의 경륜을 따라갑니다.</p>
+    </a>
+
+    <a class="entry" href="여호수아기 6-12장 무너진성벽 세워진백성.html">
+      <div class="entry-top">
+        <span class="range">6 – 12장</span>
+        <span class="arrow">→</span>
+      </div>
+      <h2 class="entry-title">무너진 성벽, 세워진 백성</h2>
+      <p class="entry-desc">여리고의 붕괴부터 아이 성 정복까지, 하나님의 경륜을 따라가는 여호수아 6~11장 묵상.</p>
+    </a>
+
+    <a class="entry" href="여호수아기 13-21장 하나님을 유업으로.html">
+      <div class="entry-top">
+        <span class="range">13 – 21장</span>
+        <span class="arrow">→</span>
+      </div>
+      <h2 class="entry-title">하나님을 유업으로</h2>
+      <p class="entry-desc">여호수아기 13장부터 21장까지, 땅의 분배와 유업을 통해 드러나는 하나님의 경륜을 묵상합니다.</p>
+    </a>
+
+    <a class="entry" href="여호수아기 22-24장 오늘 택하라.html">
+      <div class="entry-top">
+        <span class="range">22 – 24장</span>
+        <span class="arrow">→</span>
+      </div>
+      <h2 class="entry-title">오늘 택하라</h2>
+      <p class="entry-desc">여호수아기 22장부터 24장까지, 증거의 제단과 세겜의 언약, 그리고 오늘의 선택을 따라갑니다.</p>
+    </a>
+  </section>
+
+  <footer>여호수아기 1~24장 · 전 4편</footer>
+</main>
+</body>
+</html>
